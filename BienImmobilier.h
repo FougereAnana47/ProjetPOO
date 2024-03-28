@@ -3,43 +3,49 @@
 
 #include <iostream>
 
-class BienImmobilier{
-	private:
+class BienImmobilier {
+	protected:
 		int id;
 		std::string addresse;
 		float surface;
 		std::string type;
 		std::string statut;
-
-		
 	public:
-		BienImmobilier(int i, std::string add, float sur, std::string t, 
-				std::string sta);
+		BienImmobilier(int id, std::string address, float surface, std::string type, std::string statut);
 		BienImmobilier(); // définis un bien immobilier avec des valeurs 
-						  // "par défauts" => est ce qu'on le garde ? 
+						  // "par défaut" => est ce qu'on le garde ? 
 
-		void afficherDetails();
-
+		virtual void afficherDetails();
 		void mettreAJourStatut(std::string nouveauStatut);
 
-
-
+		std::string getAddress();
 };
 
-class Maison : public BienImmobilier{
+class Maison : public BienImmobilier {
+	private:
+		int rooms;
+		float garden_surface;
+	public:
+		Maison(int id, std::string address, float surface, std::string statut, int rooms, float garden_surface);
 
-
+		void afficherDetails();
 };
 
 
 class Appartement : public BienImmobilier{
+	private:
+		int rooms;
+	public:
+		Appartement(int id, std::string address, float surface, std::string statut, int rooms);
 
-
+		void afficherDetails();
 };
 
 class Terrain : public BienImmobilier{
+	public:
+		Terrain(int id, std::string address, float surface, std::string statut);
 
-
+		void afficherDetails();
 };
 
 #endif

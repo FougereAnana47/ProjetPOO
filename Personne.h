@@ -2,37 +2,47 @@
 #define PERSONNE_H_
 
 #include <iostream>
+#include <vector>
+#include "BienImmobilier.h"
 
 class Personne{
-	private:
+	protected:
 		std::string nom;
 		std::string addresse;
 		std::string telephone;
 	
 	public:
-		Personne(std::string n, std::string a, std::string t);
+		Personne(std::string nom, std::string adresse, std::string tel);
 		Personne(); // constructeur de base => on le garde ? 
+
+		virtual void afficherInfos();
+};
+
+class Client : public Personne {
+	public:
+		Client(std::string name, std::string address, std::string phone);
 
 		void afficherInfos();
 };
 
 
+class Proprietaire : public Personne {
+	private:
+		std::vector<BienImmobilier*> biens;
+	public:
+		Proprietaire(std::string name, std::string address, std::string phone, std::vector<BienImmobilier*> biens);
 
-class Client : public Personne{
-	
-
+		void afficherInfos();
 };
 
 
-class Proprietaire : public Personne{
+class Locataire : public Personne {
+	private:
+		BienImmobilier* bien;
+	public:
+		Locataire(std::string name, std::string address, std::string phone, BienImmobilier* bien);
 
-
-};
-
-
-class Locataire : public Personne{
-
-
+		void afficherInfos();
 };
 
 
