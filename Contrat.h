@@ -10,7 +10,7 @@ class Contrat{
 		std::string typeContrat;
 		std::string termesContrat;
 
-		//bool signe; // pour savoir si le contrat est signé ? 
+		bool signe; // pour savoir si le contrat est signé ? 
 
 	public:
 		Contrat(int id, std::string d, std::string ty, std::string te);

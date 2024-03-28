@@ -16,9 +16,29 @@ using namespace std;
  *
  *
 */
+void separateur(){ std::cout<<"--------------------------------\n";}
 
 void testExercice1(){
 	cout << "Tests de l'exercice 1 : " << endl;
+
+	separateur();
+
+	Personne p1("Paul", "105 rue Blaise Pascal", "+33 7 52 53 54 55");
+	p1.afficherInfos();
+	
+	separateur();
+	
+	Contrat c1(121,"29/02/2024","location meublée","avoir de l'argent");
+	c1.signerContrat();
+	c1.afficherContrat();
+
+	separateur();
+
+	BienImmobilier b1(241,"103 rue Jean Paul Sartre", 57.2, "Maison", 
+			"à vendre");
+	b1.mettreAJourStatut("vendu");
+	b1.afficherDetails();
+	separateur();
 }
 void testExercice2(){
 	cout << "Tests de l'exercice 1 : " << endl;

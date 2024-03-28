@@ -20,7 +20,7 @@ class BienImmobilier{
 
 		void afficherDetails();
 
-		void mettreAJourStatut();
+		void mettreAJourStatut(std::string nouveauStatut);
 
 
 
