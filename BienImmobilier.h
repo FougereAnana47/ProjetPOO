@@ -19,6 +19,7 @@ class BienImmobilier {
 		void mettreAJourStatut(std::string nouveauStatut);
 
 		std::string getAddress();
+		std::string getType();
 };
 
 class Maison : public BienImmobilier {
@@ -28,7 +29,7 @@ class Maison : public BienImmobilier {
 	public:
 		Maison(int id, std::string address, float surface, std::string statut, int rooms, float garden_surface);
 
-		void afficherDetails();
+		void afficherDetails(std::string prefix = "");
 };
 
 
@@ -38,14 +39,14 @@ class Appartement : public BienImmobilier{
 	public:
 		Appartement(int id, std::string address, float surface, std::string statut, int rooms);
 
-		void afficherDetails();
+		void afficherDetails(std::string prefix = "");
 };
 
 class Terrain : public BienImmobilier{
 	public:
 		Terrain(int id, std::string address, float surface, std::string statut);
 
-		void afficherDetails();
+		void afficherDetails(std::string prefix = "");
 };
 
 #endif

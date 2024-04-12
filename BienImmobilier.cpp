@@ -24,6 +24,10 @@ std::string BienImmobilier::getAddress() {
 	return this->addresse;
 }
 
+std::string BienImmobilier::getType() {
+	return this->type;
+}
+
 
 
 Maison::Maison(int id, std::string address, float surface, std::string statut, int rooms, float garden_surface) : 
@@ -33,12 +37,12 @@ Maison::Maison(int id, std::string address, float surface, std::string statut, i
 }
 
 /* Overload in case of additional details */
-void Maison::afficherDetails() {
-	this->BienImmobilier::afficherDetails();
-	std::cout << "Nombre de pièces : " << this->rooms 				        << std::endl;
-	std::cout << "Jardin : " << (this->garden_surface > 0 ? "✔" : "✗")      << std::endl;
+void Maison::afficherDetails(std::string prefix) {
+	this->BienImmobilier::afficherDetails(prefix);
+	std::cout << prefix << "Nombre de pièces : " << this->rooms 				      << std::endl;
+	std::cout << prefix << "Jardin : " << (this->garden_surface > 0 ? "✔" : "✗")      << std::endl;
 	if (this->garden_surface > 0)
-		std::cout << "Surface du Jardin : " << this->garden_surface << "m²" << std::endl;
+		std::cout << prefix << "Surface du Jardin : " << this->garden_surface << "m²" << std::endl;
 }
 
 
@@ -50,9 +54,9 @@ Appartement::Appartement(int id, std::string address, float surface, std::string
 }
 
 /* Overload in case of additional details */
-void Appartement::afficherDetails() {
-	this->BienImmobilier::afficherDetails();
-	std::cout << "Nombre de pièces : " << this->rooms << std::endl;
+void Appartement::afficherDetails(std::string prefix) {
+	this->BienImmobilier::afficherDetails(prefix);
+	std::cout << prefix << "Nombre de pièces : " << this->rooms << std::endl;
 }
 
 
@@ -64,6 +68,6 @@ Terrain::Terrain(int id, std::string address, float surface, std::string statut)
 }
 
 /* Overload in case of additional details */
-void Terrain::afficherDetails() {
-	this->BienImmobilier::afficherDetails();
+void Terrain::afficherDetails(std::string prefix) {
+	this->BienImmobilier::afficherDetails(prefix);
 }

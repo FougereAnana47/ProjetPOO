@@ -55,7 +55,7 @@ void testExercice2(){
 	app1.afficherDetails();
 	sep();
 
-	Appartement app2(61, "AAAAAAAAAAAAAAAAAA, 72000 Versailles, France", 35, "à vendre", 2);
+	Appartement app2(61, "Quelque part, 72000 Versailles, France", 35, "à vendre", 2);
 	app2.afficherDetails();
 	sep();
 
@@ -90,6 +90,7 @@ void testExercice6(){
 int main(int argc, char** argv){
 	// if called without any param just launches the second part of the function
 	// else, you can call any test with ./main num (call testExercice{num})
+
 	if(argc>=3){
 		cerr << "Usage: ./main [ num_exo ]";
 		throw invalid_argument("");
