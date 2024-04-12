@@ -43,7 +43,7 @@ void testExercice1(){
 }
 
 void testExercice2(){
-	cout << "Tests de l'exercice 1 : " << endl;
+	cout << "Tests de l'exercice 2 : " << endl;
 	sep();
 
 	/* BiensImmobiliers */
@@ -62,19 +62,19 @@ void testExercice2(){
 }
 
 void testExercice3(){
-	cout << "Tests de l'exercice 1 : " << endl;
+	cout << "Tests de l'exercice 3 : " << endl;
 }
 
 void testExercice4(){
-	cout << "Tests de l'exercice 1 : " << endl;
+	cout << "Tests de l'exercice 4 : " << endl;
 }
 
 void testExercice5(){
-	cout << "Tests de l'exercice 1 : " << endl;
+	cout << "Tests de l'exercice 5 : " << endl;
 }
 
 void testExercice6(){
-	cout << "Tests de l'exercice 1 : " << endl;
+	cout << "Tests de l'exercice 6 : " << endl;
 }
 
 
