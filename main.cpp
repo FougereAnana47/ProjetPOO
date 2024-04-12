@@ -55,9 +55,17 @@ void testExercice2(){
 	app1.afficherDetails();
 	sep();
 
+	Appartement app2(61, "AAAAAAAAAAAAAAAAAA, 72000 Versailles, France", 35, "à vendre", 2);
+	app2.afficherDetails();
+	sep();
+
 	/* Personnes */
-	Locataire p1("Patrick Balkany", "1 Place de la République, 92300 Levallois-Perret, France", "+33 1 49 68 30 00", &m1);
+	Locataire p1("Patrick Balkany", "1 Place de la République, 92300 Levallois-Perret, France", "+33 1 49 68 30 00", &app1);
 	p1.afficherInfos();
+	sep();
+
+	Proprietaire p2("Emmanuel Macron", "52 rue Barnard Tapie", "+33 1 11 11 11 00", std::vector<BienImmobilier*>({ &m1, &app2 }));
+	p2.afficherInfos();
 	sep();
 }
 

@@ -15,7 +15,7 @@ class BienImmobilier {
 		BienImmobilier(); // définis un bien immobilier avec des valeurs 
 						  // "par défaut" => est ce qu'on le garde ? 
 
-		virtual void afficherDetails();
+		virtual void afficherDetails(std::string prefix = "");
 		void mettreAJourStatut(std::string nouveauStatut);
 
 		std::string getAddress();

@@ -38,7 +38,9 @@ void Proprietaire::afficherInfos() {
 	std::cout << "Biens : " << std::endl;
 
 	for (BienImmobilier* bien : biens) {
-		std::cout << " | " << bien->getAddress() << std::endl;
+		std::cout << "| ------------------------------" << std::endl;
+		bien->afficherDetails("| ");
+		// std::cout << " | " << bien->getAddress() << std::endl;
 	}
 }
 
