@@ -7,7 +7,7 @@
 #include "Transaction.h"
 #include "Agence.h"
 
-#include "Predicate.h"
+#include "Predicat.h"
 
 using namespace std;
 
