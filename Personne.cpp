@@ -5,16 +5,13 @@
 Personne::Personne(std::string n, std::string a, std::string t):nom(n),
 	addresse(a), telephone(t){}
 
-
-Personne::Personne(): nom("undef"), addresse("undef"),telephone("undef") { }
-
-void Personne::afficherInfos() {
+void Personne::afficherInfos() const {
 	std::cout << "Voici les informations de la personne : " 			  << std::endl;
 	std::cout << "Son nom : " << nom << ", son addresse : " << addresse << std::endl;
 	std::cout << "Son telephone : " << telephone 						  << std::endl;
 }
 
-std::string Personne::GetNom(){
+std::string Personne::GetNom() const {
 	return this->nom;
 }
 
@@ -24,7 +21,7 @@ Client::Client(std::string name, std::string address, std::string phone) :
 
 }
 
-void Client::afficherInfos() {
+void Client::afficherInfos() const {
 	this->Personne::afficherInfos();
 }
 
@@ -35,7 +32,7 @@ Proprietaire::Proprietaire(std::string name, std::string address, std::string ph
 	this->biens = biens;
 }
 
-void Proprietaire::afficherInfos() {
+void Proprietaire::afficherInfos() const {
 	this->Personne::afficherInfos();
 	std::cout << "Biens : " << std::endl;
 
@@ -52,7 +49,7 @@ Locataire::Locataire(std::string name, std::string address, std::string phone, B
 	this->bien = bien;
 }
 
-void Locataire::afficherInfos() {
+void Locataire::afficherInfos() const {
 	this->Personne::afficherInfos();
 	std::cout << "Bien : " << bien->getAddress() << std::endl;
 }

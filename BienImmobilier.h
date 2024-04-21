@@ -12,17 +12,15 @@ class BienImmobilier {
 		std::string statut;
 	public:
 		BienImmobilier(int id, std::string address, float surface, std::string type, std::string statut);
-		BienImmobilier(); // définis un bien immobilier avec des valeurs 
-						  // "par défaut" => est ce qu'on le garde ? 
 
 		virtual void afficherDetails(std::string prefix = "") const;
 		void mettreAJourStatut(std::string nouveauStatut);
 
-		const std::string getAddress() const;
-		const std::string getType() const;
-		const int GetId() const;
-		const float GetSurface() const;
-		const std::string GetStatut() const;
+		std::string getAddress() const;
+		std::string getType() const;
+		int GetId() const;
+		float GetSurface() const;
+		std::string GetStatut() const;
 };
 
 class Maison : public BienImmobilier {

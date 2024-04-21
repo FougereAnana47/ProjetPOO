@@ -6,9 +6,6 @@
 BienImmobilier::BienImmobilier(int i, std::string add, float sur, std::string t, 
 	std::string sta):id(i),addresse(add),surface(sur), type(t),statut(sta) { }
 
-BienImmobilier::BienImmobilier():id(0), addresse("0"), surface(0.f), 
-	type("undef"),statut("undef") { }
-
 void BienImmobilier::afficherDetails(std::string prefix) const {
 	std::cout << prefix << "Voici les details du bien immobilier : " << std::endl;
 	std::cout << prefix << "Id : " << this->id 				   << std::endl;
@@ -22,22 +19,22 @@ void BienImmobilier::mettreAJourStatut(std::string nouveauStatut){
 	statut = nouveauStatut;
 }
 
-const std::string BienImmobilier::getAddress() const {
+std::string BienImmobilier::getAddress() const {
 	return this->addresse;
 }
 
-const std::string BienImmobilier::getType() const {
+std::string BienImmobilier::getType() const {
 	return this->type;
 }
 
-const int BienImmobilier::GetId() const {
+int BienImmobilier::GetId() const {
 	return this->id;
 }
-const float BienImmobilier::GetSurface() const {
+float BienImmobilier::GetSurface() const {
 	return this->surface;
 }
 
-const std::string BienImmobilier::GetStatut() const {
+std::string BienImmobilier::GetStatut() const {
 	return this->statut;
 }
 

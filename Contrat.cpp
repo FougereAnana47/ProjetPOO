@@ -5,10 +5,9 @@
 Contrat::Contrat(int id, std::string d, std::string ty, std::string te):
 	idContrat(id),date(d),typeContrat(ty),termesContrat(te),signe(false){}
 		
-
 Contrat::Contrat():idContrat(0),date("undef"),typeContrat("undef"),termesContrat("undef"),signe(false) {} // on le garde ? 
 
-void Contrat::afficherContrat(){
+void Contrat::afficherContrat() const {
 	std::cout<<"Voici les détails du contrat : "<<std::endl;
 	std::cout<<"Son id : "<<idContrat <<", son type : " << typeContrat <<
 		std::endl;
@@ -30,7 +29,7 @@ void Contrat::signerContrat(){
 	signe=true;
 }
 
-int Contrat::GetId(){
+int Contrat::GetId() const {
 	return this->idContrat;
 }
 

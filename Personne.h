@@ -13,17 +13,16 @@ class Personne{
 	
 	public:
 		Personne(std::string nom, std::string adresse, std::string tel);
-		Personne(); // constructeur de base => on le garde ? 
 
-		virtual void afficherInfos();
-		std::string GetNom();
+		virtual void afficherInfos() const;
+		std::string GetNom() const;
 };
 
 class Client : public Personne {
 	public:
 		Client(std::string name, std::string address, std::string phone);
 
-		void afficherInfos();
+		void afficherInfos() const override;
 };
 
 
@@ -33,7 +32,7 @@ class Proprietaire : public Personne {
 	public:
 		Proprietaire(std::string name, std::string address, std::string phone, std::vector<BienImmobilier*> biens);
 
-		void afficherInfos();
+		void afficherInfos() const override;
 };
 
 
@@ -43,7 +42,7 @@ class Locataire : public Personne {
 	public:
 		Locataire(std::string name, std::string address, std::string phone, BienImmobilier* bien);
 
-		void afficherInfos();
+		void afficherInfos() const override;
 };
 
 

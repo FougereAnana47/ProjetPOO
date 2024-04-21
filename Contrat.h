@@ -14,13 +14,11 @@ class Contrat{
 
 	public:
 		Contrat(int id, std::string d, std::string ty, std::string te);
-		Contrat(); // on le garde ? 
+		Contrat();
 
-		void afficherContrat();
-
+		void afficherContrat() const;
 		void signerContrat(); 
-
-		int GetId();
+		int GetId() const;
 };
 
 

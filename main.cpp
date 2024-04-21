@@ -7,7 +7,7 @@
 #include "Transaction.h"
 #include "Agence.h"
 
-#include "Predicat.h"
+#include "Predicate.h"
 
 using namespace std;
 
@@ -96,30 +96,6 @@ void testExercice4(){
 
 void testExercice5(){
 	cout << "Tests de l'exercice 5 : " << endl;
-
-	BienImmobilier biens[10];
-	for (int i = 0; i < 10; i++) {
-		biens[i] = BienImmobilier(i, "address" + std::to_string(i), 10*i, i%4 == 0 ? "maison" : "appartement", i%2 == 0 ? "à vendre" : "à louer");
-	}
-
-	/* On simule le choix du client via un filtre */
-	Predicate<BienImmobilier&> predicate([](BienImmobilier& b) { 
-		return b.GetSurface() >= 10.0f; 
-	});
-
-	for (BienImmobilier& bien : biens) {
-		bien.afficherDetails();
-	}
-
-	sep();
-
-	for (BienImmobilier& bien : biens) {
-		if (predicate.invoke(bien)) {
-			bien.afficherDetails();
-			break;
-		}
-	}
-	
 }
 
 void testExercice6(){
