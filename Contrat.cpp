@@ -30,3 +30,7 @@ void Contrat::signerContrat(){
 	signe=true;
 }
 
+int Contrat::GetId(){
+	return this->idContrat;
+}
+

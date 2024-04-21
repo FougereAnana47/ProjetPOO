@@ -1,6 +1,7 @@
 #include "BienImmobilier.h"
 
 #include <iostream>
+#include <string>
 
 BienImmobilier::BienImmobilier(int i, std::string add, float sur, std::string t, 
 	std::string sta):id(i),addresse(add),surface(sur), type(t),statut(sta) { }
@@ -28,7 +29,16 @@ std::string BienImmobilier::getType() {
 	return this->type;
 }
 
+int BienImmobilier::GetId(){
+	return this->id;
+}
+float BienImmobilier::GetSurface(){
+	return this->surface;
+}
 
+std::string BienImmobilier::GetStatut(){
+	return this->statut;
+}
 
 Maison::Maison(int id, std::string address, float surface, std::string statut, int rooms, float garden_surface) : 
 	BienImmobilier(id, address, surface, "maison", statut) {

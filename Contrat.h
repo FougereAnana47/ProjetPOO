@@ -19,6 +19,8 @@ class Contrat{
 		void afficherContrat();
 
 		void signerContrat(); 
+
+		int GetId();
 };
 
 

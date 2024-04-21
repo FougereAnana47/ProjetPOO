@@ -14,7 +14,9 @@ void Personne::afficherInfos() {
 	std::cout << "Son telephone : " << telephone 						  << std::endl;
 }
 
-
+std::string Personne::GetNom(){
+	return this->nom;
+}
 
 
 Client::Client(std::string name, std::string address, std::string phone) : 

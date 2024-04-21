@@ -14,7 +14,8 @@ class Transaction{
 		Transaction(); // on le garde ?
 
 		void effectuerTransaction();
-
+		int GetId();
+		float GetMontant();
 };
 
 

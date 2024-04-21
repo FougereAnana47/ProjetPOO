@@ -20,6 +20,9 @@ class BienImmobilier {
 
 		std::string getAddress();
 		std::string getType();
+		int GetId();
+		float GetSurface();
+		std::string GetStatut();
 };
 
 class Maison : public BienImmobilier {

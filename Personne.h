@@ -16,6 +16,7 @@ class Personne{
 		Personne(); // constructeur de base => on le garde ? 
 
 		virtual void afficherInfos();
+		std::string GetNom();
 };
 
 class Client : public Personne {
