@@ -7,6 +7,8 @@
 #include "Transaction.h"
 #include "Agence.h"
 
+#include "Predicat.h"
+
 using namespace std;
 
 /* Fichier permettant de faire différent test
@@ -71,6 +73,21 @@ void testExercice2(){
 
 void testExercice3(){
 	cout << "Tests de l'exercice 3 : " << endl;
+	sep();
+
+	BienImmobilier* biens[5] = {
+		new Maison(666, "55 rue du Faubourg-Saint-Honoré, 75008 Paris, France", 11179, "à vendre", 365, 150000),
+		new Maison(667, "56 rue du Faubourg-Saint-Honoré, 75008 Paris, France", 11180, "à louer", 366, 150001),
+		new Maison(668, "57 rue du Faubourg-Saint-Honoré, 75008 Paris, France", 11180, "à vendre", 367, 150002),
+
+		new Appartement(42, "20 rue de la Bastille, 75000 Paris, France", 12, "à louer", 1),
+		new Appartement(61, "Quelque part, 72000 Versailles, France", 35, "à vendre", 2)
+	};
+
+	for (BienImmobilier* bien : biens) {
+		bien->afficherDetails();
+		sep();
+	}
 }
 
 void testExercice4(){
@@ -79,6 +96,30 @@ void testExercice4(){
 
 void testExercice5(){
 	cout << "Tests de l'exercice 5 : " << endl;
+
+	BienImmobilier biens[10];
+	for (int i = 0; i < 10; i++) {
+		biens[i] = BienImmobilier(i, "address" + std::to_string(i), 10*i, i%4 == 0 ? "maison" : "appartement", i%2 == 0 ? "à vendre" : "à louer");
+	}
+
+	/* On simule le choix du client via un filtre */
+	Predicate<BienImmobilier&> predicate([](BienImmobilier& b) { 
+		return b.GetSurface() >= 10.0f; 
+	});
+
+	for (BienImmobilier& bien : biens) {
+		bien.afficherDetails();
+	}
+
+	sep();
+
+	for (BienImmobilier& bien : biens) {
+		if (predicate.invoke(bien)) {
+			bien.afficherDetails();
+			break;
+		}
+	}
+	
 }
 
 void testExercice6(){
@@ -92,7 +133,7 @@ int main(int argc, char** argv){
 	// else, you can call any test with ./main num (call testExercice{num})
 
 	if(argc>=3){
-		cerr << "Usage: ./main [ num_exo ]";
+		cerr << "Usage: ./main < num_exo >";
 		throw invalid_argument("");
 	}
 	else if(argc==2){ // call a specific exercise 
