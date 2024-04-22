@@ -31,18 +31,17 @@ void Contrat::afficherContrat() const {
 		std::endl;
 	std::cout << "Le contrat est-il signé : " << (signe?"oui":"non")<<std::endl;
 	
-	std::cout << "Clients : " << std::endl;
+	std::cout << "Clients du contrat : " << std::endl;
 
 	for (Client* client : clients) {
-		std::cout << "| ------------------------------" << std::endl;
-		client->afficherInfos();
+		std::cout << "| Nom : " << client->GetNom() << std::endl;
 	}
 
-	std::cout << "Biens : " << std::endl;
+	std::cout << "Biens du contrat : " << std::endl;
 
 	for (BienImmobilier* bien : biens) {
 		std::cout << "| ------------------------------" << std::endl;
-		bien->afficherDetails();
+		std::cout << "| Id : " << bien->GetId() << std::endl;
 	}
 }
 

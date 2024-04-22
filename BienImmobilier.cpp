@@ -33,11 +33,9 @@ void BienImmobilier::afficherDetails(std::string prefix) const {
 	std::cout << prefix << "Type : " << this->type 			   << std::endl;
 	std::cout << prefix << "Statut : " << this->statut 		   << std::endl;
 
-	std::cout << prefix << "Contrats : " << std::endl;
-
+	std::cout << "Contrats du bien-immobilier : " << std::endl;
 	for (Contrat* contrat : contrats) {
-		std::cout << "| ------------------------------" << std::endl;
-		contrat->afficherContrat();
+		std::cout << "| Id : " << contrat->GetId() << std::endl;
 	}
 }
 
