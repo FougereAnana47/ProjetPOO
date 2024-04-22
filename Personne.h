@@ -23,11 +23,12 @@ class Personne{
 
 class Client : public Personne {
 	private:
-		std::vector<Contrat*> contrats;
+		std::vector<Contrat> contrats;
 	public:
 		Client(std::string name, std::string address, std::string phone);
 
 		void afficherInfos() const override;
+		void ajouterContrat(Contrat contrat);
 };
 
 
@@ -49,8 +50,6 @@ class Locataire : public Personne {
 
 		void afficherInfos() const override;
 };
-
-
 
 
 #endif

@@ -33,15 +33,14 @@ void Contrat::afficherContrat() const {
 	
 	std::cout << "Clients du contrat : " << std::endl;
 
-	for (Client* client : clients) {
-		std::cout << "| Nom : " << client->GetNom() << std::endl;
+	for (Client client : clients) {
+		std::cout << "| Nom : " << client.GetNom() << std::endl;
 	}
 
 	std::cout << "Biens du contrat : " << std::endl;
 
-	for (BienImmobilier* bien : biens) {
-		std::cout << "| ------------------------------" << std::endl;
-		std::cout << "| Id : " << bien->GetId() << std::endl;
+	for (BienImmobilier bien : biens) {
+		std::cout << "| Id : " << bien.GetId() << std::endl;
 	}
 }
 
@@ -58,11 +57,11 @@ void Contrat::signerContrat(){
 	try {
 		if (signe)
 		{
-			throw EX_DejaSigne();
+			throw EX_ContratDejaSigne();
 		}
 		signe = true;
 	}
-	catch (EX_DejaSigne) {
+	catch (EX_ContratDejaSigne) {
 		std::cerr << "Exception lors de la signature d'un contrat : Le contrat a déjà été signé." << std::endl;
 	}
 }
@@ -71,3 +70,9 @@ int Contrat::GetId() const {
 	return this->idContrat;
 }
 
+void Contrat::ajouterClient(Client client){
+	this->clients.push_back(client);
+}
+void Contrat::ajouterBienImmobilier(BienImmobilier bien){
+	this->biens.push_back(bien);
+}

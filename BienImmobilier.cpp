@@ -34,13 +34,17 @@ void BienImmobilier::afficherDetails(std::string prefix) const {
 	std::cout << prefix << "Statut : " << this->statut 		   << std::endl;
 
 	std::cout << "Contrats du bien-immobilier : " << std::endl;
-	for (Contrat* contrat : contrats) {
-		std::cout << "| Id : " << contrat->GetId() << std::endl;
+	for (Contrat contrat : contrats) {
+		std::cout << "| Id : " << contrat.GetId() << std::endl;
 	}
 }
 
 void BienImmobilier::mettreAJourStatut(std::string nouveauStatut){
 	statut = nouveauStatut;
+}
+
+void BienImmobilier::ajouterContrat(Contrat contrat){
+	this->contrats.push_back(contrat);
 }
 
 std::string BienImmobilier::getAddress() const {

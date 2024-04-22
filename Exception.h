@@ -4,6 +4,7 @@
 #include <iostream>
 
 class Exception { };
-class EX_DejaSigne : public Exception { };
+class EX_ContratDejaSigne : public Exception { };
+class EX_PersonneNonValide : public Exception { };
 
 #endif

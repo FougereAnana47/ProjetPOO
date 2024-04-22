@@ -13,12 +13,13 @@ class BienImmobilier {
 		float surface;
 		std::string type;
 		std::string statut;
-		std::vector<Contrat*> contrats;
+		std::vector<Contrat> contrats;
 	public:
 		BienImmobilier(int id, std::string address, float surface, std::string type, std::string statut);
 
 		virtual void afficherDetails(std::string prefix = "") const;
 		void mettreAJourStatut(std::string nouveauStatut);
+		void ajouterContrat(Contrat contrat);
 
 		std::string getAddress() const;
 		std::string getType() const;

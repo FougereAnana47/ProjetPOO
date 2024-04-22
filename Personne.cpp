@@ -24,9 +24,13 @@ Client::Client(std::string name, std::string address, std::string phone) :
 void Client::afficherInfos() const {
 	this->Personne::afficherInfos();
 	std::cout << "Contrats du clients: " << std::endl;
-	for (Contrat* contrat : contrats) {
-		std::cout << "| Id : " << contrat->GetId() <<std::endl;
+	for (Contrat contrat : contrats) {
+		std::cout << "| Id : " << contrat.GetId() <<std::endl;
 	}
+}
+
+void Client::ajouterContrat(Contrat contrat){
+	this->contrats.push_back(contrat);
 }
 
 

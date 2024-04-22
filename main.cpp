@@ -92,6 +92,45 @@ void testExercice3(){
 
 void testExercice4(){
 	cout << "Tests de l'exercice 4 : " << endl;
+
+	sep();
+
+	Contrat c1(-5,"06/11/1990","vente non meublé","gagner peu d'argent");
+
+	sep();
+
+	Contrat c2(756,"12/07/2026","vente meublé","se débarraser du bien");
+	c2.signerContrat();
+	c2.afficherContrat();
+
+	sep();
+
+	c2.signerContrat();
+	c2.afficherContrat();
+
+	sep();
+
+	BienImmobilier b1(-75,"80 Boulevard de l'Élysée", 15.7, "Palais", "à vendre");
+	BienImmobilier b2(90,"405 rue de la Bastille", -75.4, "Manoir", "à louer");
+	sep();
+
+	Maison m1(123, "62 avenue de St-Exupéry, 48009 Paris, Canada", 7514, "à vendre", -52, 75600.1);
+	Maison m2(456, "63 avenue de St-Exupéry, 47006 Paris, Belgique", 9875, "à vendre", 400, -90.2);
+	sep();
+
+	Appartement app1(56, "89 rue de St-Bonnet de Mure, 12047 Lyon, Suisse", 47, "à louer", -1);
+	sep();
+
+	Agence ag1("AgencePOO");
+	ag1.creerContrat(Client("Pierre-Antoine","9 rue St-Jacques, 95600 Metropolis, Chine","0423"),
+	new Client("Joe Biden","87 place de la Maison Blanche, 95600 Washington DC, Corée du Nord","0423"),
+	BienImmobilier(748,"975 Boulevard du Moulin d'or", 47.1, "Palais", "à vendre"), 47, "01/12/0210",
+	"vieille vente d'une antiquité","don payant pour un collectionneur");
+	sep();
+
+	Transaction t1(-186, 45.3,"03/07/0498");
+	Transaction t2(186, -45.3,"07/03/8940");
+	sep();
 }
 
 void testExercice5(){
@@ -100,6 +139,36 @@ void testExercice5(){
 
 void testExercice6(){
 	cout << "Tests de l'exercice 6 : " << endl;
+
+	sep();
+
+	Agence agence("Agence Douteuse");
+	agence.afficherInfos();
+	sep();
+
+	agence.ajouterBien(BienImmobilier(457,"4 Rue de Montreal", 12.7, "Mairie", "à louer"));
+	agence.afficherInfos();
+
+	sep();
+
+	agence.ajouterPersonne(Client("Poppins","île de Bordeaux, 41203 Toulouse, Japon","15874"));
+	agence.afficherInfos();
+
+	sep();
+
+	Contrat contrat = agence.creerContrat(
+		Client("Donald Trump","0 bis avenue du Retour, 74FD14 Persepolis, Algerie","7489"),
+		new Locataire("Eric Zemmour","89 Impasse de la Remontée mécanique, AEDS65 Toronto, Australie","4", new Maison(412, "Rue de l'Infini, APM658 Londres, Brésil", 7489, "à louer rapidement", 4572, 42733.9)),
+		Maison(412, "Rue de l'Infini, APM658 Londres, Brésil", 7489, "à louer rapidement", 4572, 42733.9),
+		742, "12/07/2024", "location d'une maison hanté","récupérer des sous");
+	contrat.afficherContrat();
+
+	sep();
+	
+	agence.enregistrerTransaction(Transaction(1237, 74512.3,"07/11/-54786"));
+	agence.afficherInfos();
+
+	sep();
 }
 
 

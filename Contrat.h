@@ -18,8 +18,8 @@ class Contrat{
 
 		bool signe; // pour savoir si le contrat est signé ? 
 
-		std::vector<Client*> clients;
-		std::vector<BienImmobilier*> biens;
+		std::vector<Client> clients;
+		std::vector<BienImmobilier> biens;
 
 	public:
 		Contrat(int id, std::string d, std::string ty, std::string te);
@@ -28,6 +28,8 @@ class Contrat{
 		void afficherContrat() const;
 		void signerContrat(); 
 		int GetId() const;
+		void ajouterClient(Client client); 
+		void ajouterBienImmobilier(BienImmobilier bien); 
 };
 
 
