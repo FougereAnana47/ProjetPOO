@@ -4,7 +4,10 @@
 #include <iostream>
 #include <vector>
 #include "BienImmobilier.h"
+#include "Contrat.h"
 
+class Contrat;
+class BienImmobilier;
 class Personne{
 	protected:
 		std::string nom;
@@ -19,6 +22,8 @@ class Personne{
 };
 
 class Client : public Personne {
+	private:
+		std::vector<Contrat*> contrats;
 	public:
 		Client(std::string name, std::string address, std::string phone);
 

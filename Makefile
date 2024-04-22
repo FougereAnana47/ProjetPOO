@@ -5,7 +5,7 @@ SRC = ${*.cpp}
 OBJ = ${SRC:.cpp=.o}
 EXE = ${SRC:.cpp=}
 
-main : main.cpp BienImmobilier.cpp Personne.cpp Contrat.cpp Transaction.cpp Agence.cpp Predicat.cpp Template.cpp
+main: main.cpp BienImmobilier.cpp Personne.cpp Contrat.cpp Transaction.cpp Agence.cpp Predicat.cpp Template.cpp Exception.cpp
 
 .PHONY:clean
 clean:

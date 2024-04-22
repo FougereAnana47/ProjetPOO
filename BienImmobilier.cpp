@@ -4,7 +4,26 @@
 #include <string>
 
 BienImmobilier::BienImmobilier(int i, std::string add, float sur, std::string t, 
-	std::string sta):id(i),addresse(add),surface(sur), type(t),statut(sta) { }
+	std::string sta) {
+	try {
+		if (i < 0)
+		{
+			throw std::range_error("L'id doit être supèrieur ou égal à 0.");
+		}
+		if (sur < 0)
+		{
+			throw std::range_error("La surface doit être supèrieur ou égal à 0.");
+		}
+		id = i;
+		addresse = add;
+		surface = sur;
+		type = t;
+		statut = sta;
+	}
+	catch (std::range_error& e) {
+		std::cerr << "Exception lors de la création d'un bien immobilier : " << e.what() << std::endl;
+	}
+}
 
 void BienImmobilier::afficherDetails(std::string prefix) const {
 	std::cout << prefix << "Voici les details du bien immobilier : " << std::endl;
@@ -13,6 +32,13 @@ void BienImmobilier::afficherDetails(std::string prefix) const {
 	std::cout << prefix << "Surface : " << this->surface       << std::endl;
 	std::cout << prefix << "Type : " << this->type 			   << std::endl;
 	std::cout << prefix << "Statut : " << this->statut 		   << std::endl;
+
+	std::cout << prefix << "Contrats : " << std::endl;
+
+	for (Contrat* contrat : contrats) {
+		std::cout << "| ------------------------------" << std::endl;
+		contrat->afficherContrat();
+	}
 }
 
 void BienImmobilier::mettreAJourStatut(std::string nouveauStatut){
@@ -40,8 +66,21 @@ std::string BienImmobilier::GetStatut() const {
 
 Maison::Maison(int id, std::string address, float surface, std::string statut, int rooms, float garden_surface) : 
 	BienImmobilier(id, address, surface, "maison", statut) {
-	this->rooms = rooms;
-	this->garden_surface = garden_surface;
+	try {
+		if (rooms < 0)
+		{
+			throw std::range_error("Le nombre de pièces doit être supèrieur ou égal à 0.");
+		}
+		if (garden_surface < 0)
+		{
+			throw std::range_error("La surface du jardin doit être supèrieur ou égal à 0.");
+		}
+		this->rooms = rooms;
+		this->garden_surface = garden_surface;
+	}
+	catch (std::range_error& e) {
+		std::cerr << "Exception lors de la création de la maison : " << e.what() << std::endl;
+	}
 }
 
 /* Overload in case of additional details */
@@ -58,7 +97,16 @@ void Maison::afficherDetails(std::string prefix) const {
 
 Appartement::Appartement(int id, std::string address, float surface, std::string statut, int rooms) : 
 	BienImmobilier(id, address, surface, "appartement", statut){
-	this->rooms = rooms;
+	try {
+		if (rooms < 0)
+		{
+			throw std::range_error("Le nombre de pièces doit être supèrieur ou égal à 0.");
+		}
+		this->rooms = rooms;
+	}
+	catch (std::range_error& e) {
+		std::cerr << "Exception lors de la création de l'appartement : " << e.what() << std::endl;
+	}
 }
 
 /* Overload in case of additional details */

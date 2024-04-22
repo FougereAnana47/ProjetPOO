@@ -23,6 +23,12 @@ Client::Client(std::string name, std::string address, std::string phone) :
 
 void Client::afficherInfos() const {
 	this->Personne::afficherInfos();
+	std::cout << "Contrats : " << std::endl;
+
+	for (Contrat* contrat : contrats) {
+		std::cout << "| ------------------------------" << std::endl;
+		contrat->afficherContrat();
+	}
 }
 
 

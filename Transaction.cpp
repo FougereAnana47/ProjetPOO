@@ -8,9 +8,22 @@ Transaction::Transaction(){
 
 
 Transaction::Transaction(int id, float m, std::string dT){
-	idTransaction=id;
-	montant=m;
-	dateTransaction=dT;
+	try {
+		if (id < 0)
+		{
+			throw std::range_error("L'id doit être supèrieur ou égal à 0.");
+		}
+		if (m < 0)
+		{
+			throw std::range_error("Le montant doit être supèrieur ou égal à 0.");
+		}
+		idTransaction = id;
+		montant = m;
+		dateTransaction = dT;
+	}
+	catch (std::range_error& e) {
+		std::cerr << "Exception lors de la création d'une transaction : " << e.what() << std::endl;
+	}
 }
 
 int Transaction::GetId(){

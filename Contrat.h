@@ -2,7 +2,13 @@
 #define CONTRAT_H_
 
 #include <iostream>
+#include <vector>
 
+#include "Personne.h"
+#include "Exception.h"
+
+class Client;
+class BienImmobilier;
 class Contrat{
 	private:
 		int idContrat;
@@ -11,6 +17,9 @@ class Contrat{
 		std::string termesContrat;
 
 		bool signe; // pour savoir si le contrat est signé ? 
+
+		std::vector<Client*> clients;
+		std::vector<BienImmobilier*> biens;
 
 	public:
 		Contrat(int id, std::string d, std::string ty, std::string te);

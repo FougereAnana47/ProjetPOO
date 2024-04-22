@@ -2,7 +2,10 @@
 #define BIEN_IMMOBILIER_H_
 
 #include <iostream>
+#include <vector>
+#include "Contrat.h"
 
+class Contrat;
 class BienImmobilier {
 	protected:
 		int id;
@@ -10,6 +13,7 @@ class BienImmobilier {
 		float surface;
 		std::string type;
 		std::string statut;
+		std::vector<Contrat*> contrats;
 	public:
 		BienImmobilier(int id, std::string address, float surface, std::string type, std::string statut);
 

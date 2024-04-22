@@ -1,9 +1,25 @@
 #include "Contrat.h"
+#include "Personne.h"
+#include "BienImmobilier.h"
 
 #include <iostream>
 
-Contrat::Contrat(int id, std::string d, std::string ty, std::string te):
-	idContrat(id),date(d),typeContrat(ty),termesContrat(te),signe(false){}
+Contrat::Contrat(int id, std::string d, std::string ty, std::string te){
+	try {
+		if (id < 0)
+		{
+			throw std::range_error("L'id doit être supèrieur ou égal à 0.");
+		}
+		idContrat = id;
+		date = d;
+		typeContrat = ty;
+		termesContrat = te;
+		signe = false;
+	}
+	catch (std::range_error& e) {
+		std::cerr << "Exception lors de la création d'un contrat : " << e.what() << std::endl;
+	}
+}
 		
 Contrat::Contrat():idContrat(0),date("undef"),typeContrat("undef"),termesContrat("undef"),signe(false) {} // on le garde ? 
 
@@ -14,6 +30,20 @@ void Contrat::afficherContrat() const {
 	std::cout<<"Sa date : " << date << ", ses termes : " << termesContrat <<
 		std::endl;
 	std::cout << "Le contrat est-il signé : " << (signe?"oui":"non")<<std::endl;
+	
+	std::cout << "Clients : " << std::endl;
+
+	for (Client* client : clients) {
+		std::cout << "| ------------------------------" << std::endl;
+		client->afficherInfos();
+	}
+
+	std::cout << "Biens : " << std::endl;
+
+	for (BienImmobilier* bien : biens) {
+		std::cout << "| ------------------------------" << std::endl;
+		bien->afficherDetails();
+	}
 }
 
 void Contrat::signerContrat(){
@@ -26,7 +56,16 @@ void Contrat::signerContrat(){
 
 
 	// Pour l'instant je pars sur la première option car plus simple
-	signe=true;
+	try {
+		if (signe)
+		{
+			throw EX_DejaSigne();
+		}
+		signe = true;
+	}
+	catch (EX_DejaSigne) {
+		std::cerr << "Exception lors de la signature d'un contrat : Le contrat a déjà été signé." << std::endl;
+	}
 }
 
 int Contrat::GetId() const {
