@@ -5,13 +5,8 @@
 #include "Transaction.h"
 
 bool IsAppartement(BienImmobilier* bien);
-
 bool IsMaison(BienImmobilier* bien);
-
 bool IsTerrain(BienImmobilier* bien);
-
 bool SurfaceOf50(BienImmobilier* bien);
-
 bool SurfaceIsBigger(BienImmobilier* b1, BienImmobilier* b2);
-
-bool MontantIsBigger(Transaction t1, Transaction t2);
+bool MontantIsBigger(Transaction* t1, Transaction* t2);

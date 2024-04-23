@@ -6,7 +6,6 @@ Transaction::Transaction(){
 	this->montant=-1.f;
 }
 
-
 Transaction::Transaction(int id, float m, std::string dT){
 	try {
 		if (id < 0)

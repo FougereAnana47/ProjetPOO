@@ -16,7 +16,7 @@ void SortObject(std::vector<T> vec){
 		}
 		vec[j+1]=temp;
 	}
-} // useful to organise data 
+} // useful to organise data
 
 
 template<class T>

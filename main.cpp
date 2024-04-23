@@ -90,9 +90,8 @@ void testExercice3(){
 	}
 }
 
-void testExercice4(){
+void testExercice4() {
 	cout << "Tests de l'exercice 4 : " << endl;
-
 	sep();
 
 	Contrat c1(-5,"06/11/1990","vente non meublé","gagner peu d'argent");
@@ -133,8 +132,22 @@ void testExercice4(){
 	sep();
 }
 
-void testExercice5(){
-	cout << "Tests de l'exercice 5 : " << endl;
+void testExercice5() {
+	cout << "Tests de l'exercice 6 : " << endl;
+	sep();
+
+	std::vector<BienImmobilier*> biens = {
+		new Maison(666, "55 rue du Faubourg-Saint-Honoré, 75008 Paris, France", 11179, "à vendre", 365, 150000),
+		new Appartement(42, "20 rue de la Bastille, 75000 Paris, France", 12, "à louer", 1),
+		new Terrain(64, "Quelque part, 72000 Versailles, France", 78, "à vendre")
+	};
+
+	std::vector<Transaction*> transacs = {
+		new Transaction(1, 568.0f, "01/01/1970"),
+		new Transaction(2, 1568.0f, "12/34/5678"),
+	};
+
+	
 }
 
 void testExercice6(){

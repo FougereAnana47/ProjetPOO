@@ -6,7 +6,7 @@
 #include "Personne.h"
 #include "Contrat.h"
 #include "Transaction.h"
-#include "exception.h"
+#include "Exception.h"
 
 
 #include <iostream>
