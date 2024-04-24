@@ -13,7 +13,7 @@
 // utilisons la spécialisation de template : 
 
 template<>// spécialisation explicite
-void SortObject(std::vector<Personne*> vec){
+void SortObject(std::vector<Personne*>& vec){
 	Personne* temp;
 	int j;
 	for(int i=1;i<vec.size();i++){
@@ -29,7 +29,7 @@ void SortObject(std::vector<Personne*> vec){
 }
 
 template<>// spécialisation explicite
-void SortObject(std::vector<BienImmobilier*> vec){
+void SortObject(std::vector<BienImmobilier*>& vec){
 	BienImmobilier* temp;
 	int j;
 	for(int i=1;i<vec.size();i++){
@@ -48,7 +48,7 @@ void SortObject(std::vector<BienImmobilier*> vec){
 
 
 template<>// spécialisation explicite
-void SortObject(std::vector<Contrat> vec){
+void SortObject(std::vector<Contrat>& vec){
 	Contrat temp;
 	int j;
 	for(int i=1;i<vec.size();i++){
@@ -64,14 +64,14 @@ void SortObject(std::vector<Contrat> vec){
 }
 
 template<>// spécialisation explicite
-void SortObject(std::vector<Transaction> vec){
-	Transaction temp;
+void SortObject(std::vector<Transaction*>& vec){
+	Transaction* temp;
 	int j;
 	for(int i=1;i<vec.size();i++){
 		j=i-1;
 		temp=vec[i];
 		
-		while(j>=0 && vec[j].GetId()>temp.GetId()){
+		while(j>=0 && vec[j]->GetId()>temp->GetId()){
 			vec[j+1]=vec[j];
 			j=j-1;
 		}

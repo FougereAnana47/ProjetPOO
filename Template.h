@@ -1,7 +1,7 @@
 #include <vector>
 
 template <class T>
-void SortObject(std::vector<T> vec){
+void SortObject(std::vector<T>& vec){
 	// implementation of an insert sort to sort low-medium sized vector in a 
 	// somewhat efficient way
 	T temp;
@@ -20,7 +20,7 @@ void SortObject(std::vector<T> vec){
 
 
 template<class T>
-std::vector<T> GetWithPredicate(std::vector<T> vec, bool (*p)(T)){
+std::vector<T> GetWithPredicate(std::vector<T>& vec, bool (*p)(T)){
 	// attention à bien passer la référence de la fonction prédicat en paramètre
 	// et pas directement la fonction elle même
 	std::vector<T> res;
@@ -33,7 +33,7 @@ std::vector<T> GetWithPredicate(std::vector<T> vec, bool (*p)(T)){
 
 
 template<class T>
-void SortObjectWithPredicate(std::vector<T> vec, bool (*p)(T,T)){
+void SortObjectWithPredicate(std::vector<T>& vec, bool (*p)(T,T)){
 	// donne plus d'options de tri à l'utilisateur si ce dernier 
 	// ressent ce besoin, dans notre cas p(T1,T2)==True signifie que 'T1>T2"	
 	// l'utilisateur devra prendre en compte les détails de cette implementation

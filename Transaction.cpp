@@ -32,3 +32,10 @@ int Transaction::GetId(){
 float Transaction::GetMontant(){
 	return this->montant;
 }
+
+
+void Transaction::afficherDetails(){
+	std::cout<<"Id de la transaction : "<<this->idTransaction<<std::endl
+		<<"Montant de la transaction : "<<this->montant<<std::endl
+		<<"Date de la transaction : " << this->dateTransaction<<std::endl;
+}

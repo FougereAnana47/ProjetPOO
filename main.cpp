@@ -1,11 +1,14 @@
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 
 #include "BienImmobilier.h"
 #include "Personne.h"
 #include "Contrat.h"
 #include "Transaction.h"
 #include "Agence.h"
+#include "Template.h"
+#include "Predicat.h"
 
 #include "Predicat.h"
 
@@ -133,20 +136,38 @@ void testExercice4() {
 }
 
 void testExercice5() {
-	cout << "Tests de l'exercice 6 : " << endl;
+	cout << "Tests de l'exercice 5 : " << endl;
 	sep();
+
 
 	std::vector<BienImmobilier*> biens = {
 		new Maison(666, "55 rue du Faubourg-Saint-Honoré, 75008 Paris, France", 11179, "à vendre", 365, 150000),
 		new Appartement(42, "20 rue de la Bastille, 75000 Paris, France", 12, "à louer", 1),
-		new Terrain(64, "Quelque part, 72000 Versailles, France", 78, "à vendre")
+		new Terrain(64, "Quelque part, 72000 Versailles, France", 78, "à vendre"),
+		new Maison(38,"316 rue de champignons",40.6,"à vendre", 8,100.5)
 	};
 
 	std::vector<Transaction*> transacs = {
 		new Transaction(1, 568.0f, "01/01/1970"),
 		new Transaction(2, 1568.0f, "12/34/5678"),
+		new Transaction(34,360.f,"30,02,2048"),
+		new Transaction(7,679.f,"13/04/2024")
 	};
 
+	SortObject(biens);
+	for(BienImmobilier* b:biens){
+		b->afficherDetails();
+	}
+	sep();
+	SortObjectWithPredicate(transacs, MontantIsBigger);
+	for(Transaction* t:transacs){
+		t->afficherDetails();		
+	}
+	sep();
+	std::vector<BienImmobilier*> selected=GetWithPredicate(biens, IsMaison);
+	for(BienImmobilier* b:selected){
+		b->afficherDetails();	
+	}
 	
 }
 

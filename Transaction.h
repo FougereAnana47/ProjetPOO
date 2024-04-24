@@ -16,6 +16,7 @@ class Transaction{
 		void effectuerTransaction();
 		int GetId();
 		float GetMontant();
+		void afficherDetails();
 };
 
 

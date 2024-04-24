@@ -4,15 +4,15 @@
 
 
 bool IsAppartement(BienImmobilier* bien){
-	return bien->GetStatut() == "Appartement";
+	return bien->getType() == "appartement";
 }
 
 bool IsMaison(BienImmobilier* bien){
-	return bien->GetStatut() == "Maison";
+	return bien->getType() == "maison";
 }
 
 bool IsTerrain(BienImmobilier* bien) {
-	return bien->GetStatut() == "Terrain";
+	return bien->getType() == "terrain";
 }
 
 bool SurfaceOf50(BienImmobilier* bien){
